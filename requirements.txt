@@ -4,3 +4,8 @@ pytest
 polars
 matplotlib
 jupyter
+ruff
+boto3 
+nbval 
+tabulate 
+ydata-profiling 

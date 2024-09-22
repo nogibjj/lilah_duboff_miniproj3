@@ -51,6 +51,7 @@ def test_full_describe():
 #     result = build_bar_chart(test_df, False)
 #     assert result is None
 
+
 def test_build_scatterplot():
     test_path = io.StringIO(mock_csv_data)
     test_df = load_dataset(test_path)

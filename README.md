@@ -45,4 +45,4 @@
 ---
 ###### The following graph is a visualization created by the script, which displays the average birth weight compared to the length of the mother's gestation:
 
-![alt text](outputs/gest_and_bwt.png)
+![alt text](outputs/gestation_and_bwt.png)
