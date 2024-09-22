@@ -1,10 +1,7 @@
 """Takes a csv file, reads it, and creates graphs"""
 
 import matplotlib.pyplot as plt
-import polars as pl 
-
-csv_url = "https://media.githubusercontent.com/media/nickeubank/MIDS_Data/refs/heads/master/smoking.csv"
-
+import polars as pl
 
 
 # create a function that loads in a dataset
@@ -13,7 +10,7 @@ def load_dataset(path):
     loads it into the script for analysis,
     returns a dataframe"""
     try:
-        data = pd.read_csv(path)
+        data = pl.read_csv(path)
         return data
     except FileNotFoundError:
         print(f"File {path} not found")
@@ -23,36 +20,45 @@ def load_dataset(path):
         return None
 
 
-def full_describe(driving_df):
+def full_describe(bwt_data):
     """function that sets a new df variable equal to the summary stats"""
-    summary_stats = driving_df.describe()
-    stats_markdown = summary_stats.to_markdown()
-    with open("driving_summary.md", "w", encoding="utf-8") as file:
-        file.write("Describe:\n")
-        file.write(stats_markdown)
-        file.write("\n\n")
-        file.write(
-            "![driving_fatalities](python_files/outputs/driving_fatalities.png)\n"
-        )
-
-    return stats_markdown
+    desc_stats = bwt_data.describe()
+    bwt_df = pl.DataFrame(desc_stats)
+    with pl.Config(
+    tbl_formatting="ASCII_MARKDOWN",
+    tbl_hide_column_data_types=True,
+    tbl_hide_dataframe_shape=True,
+    ):
+        print(desc_stats)
 
 
-def build_bar_chart(driving_df, is_jupyter):
+def build_bar_chart(bwt_data):
     """builds a histogram out of the target columns"""
-
-    plt.bar(driving_df["year"], driving_df["fatal"])
-    plt.xlabel("Year")
-    plt.ylabel("Number of Fatalities")
-    plt.title("Number of Car Crash Fatalities by Year")
-
-    if is_jupyter is True:
-        plt.savefig("./outputs/driving_fatalities.png")
-    if is_jupyter is False:
-        plt.savefig("python_files/outputs/output.png")
-        plt.show()
+#can add in code here to build a bar chart
 
 
-def build_scatterplot():
+def build_scatterplot(bwt_data):
     """builds a scatterplot out of the target columns"""
-    # can be used to build scatterplots
+    plt.bar(bwt_data["gestation"], bwt_data["bwt.oz"])
+    plt.xlabel("Gestation Length")
+    plt.ylabel("Birth Weight(oz)")
+    plt.title("Gestation length and average birth weight")
+    plt.savefig("./outputs/gestation_and_bwt.png")
+    plt.show
+
+
+def main():
+    bwt_data = load_dataset(
+        "https://media.githubusercontent.com/media/nickeubank/MIDS_Data/refs/heads/master/smoking.csv"
+    )
+    print(full_describe(bwt_data))
+
+    plt.scatter(bwt_data["gestation"], bwt_data["bwt.oz"])
+    plt.xlabel("Gestation Length (days)")
+    plt.ylabel("Birth Weight(oz)")
+    plt.title("Gestation and average birth weight")
+    plt.savefig("./outputs/gest_and_bwt.png")
+    plt.show
+
+if __name__ == "__main__":
+    main()

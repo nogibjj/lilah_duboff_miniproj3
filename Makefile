@@ -6,7 +6,7 @@ format:
 	black ./python_files
 
 lint:
-	ruff check ./python_files/*.py  ./python_files/*.ipynb 
+	pylint ./python_files 
 	
 test:
 	python -m pytest -vv --nbval ./python_files/tests/test_*.py ./python_files/*.ipynb
