@@ -32,8 +32,15 @@ def full_describe(bwt_data):
     )
     string_df = str(bwt_df)
 
+    summary_report = "This report displays the outputs from the main.py file, which include a table of generated summary statistics, and a scatterplot visualizing the birth weight in oz of a newborn against the length of the mother's gestation period. \n "  # noqa: E501
+
     with open("summary_stats.md", "w") as f:
+        f.write("## Summary Statistics Report: \n")
+        f.write(summary_report)
+        f.write("#### Table of Summary Statistics \n")
         f.write(string_df)
+        f.write("\n \n")
+        f.write("![gestation_and_bwt](outputs/gestation_and_bwt.png)\n")
     return desc_stats
 
 

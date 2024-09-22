@@ -16,7 +16,7 @@ check:
 	git config --local user.email "action@github.com"; \
 	git config --local user.name "Github Action"; \
 	git add .; \
-	git commit -m "test"; \
+	git commit -m "Committing with make check"; \
 	git push; \
 
 deploy:
