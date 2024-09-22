@@ -19,6 +19,7 @@
 - pytest
 - polars
 - matplotlib
+- ruff
 
     
 ---
