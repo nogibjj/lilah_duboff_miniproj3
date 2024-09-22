@@ -6,13 +6,13 @@ format:
 	black ./python_files
 
 lint:
-	pylint ./python_files 
+	ruff check ./python_files/*.py  
 	
 test:
 	python -m pytest -vv --nbval ./python_files/tests/test_*.py ./python_files/*.ipynb
 
 check:
-	python ./python_files/desc_stats_main.py
+	python ./python_files/main.py
 	git config --local user.email "action@github.com"; \
 	git config --local user.name "Github Action"; \
 	git add .; \
