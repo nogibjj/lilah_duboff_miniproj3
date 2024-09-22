@@ -1,3 +1,4 @@
+[![Python Application Test with Github Actions](https://github.com/nogibjj/lilah_duboff_miniproj3/actions/workflows/main.yml/badge.svg)](https://github.com/nogibjj/lilah_duboff_miniproj3/actions/workflows/main.yml)
 # Mini Project 3: Generating Descriptive Statistics with Polars
 ##### The goal of this project is to utilize the polars library to create summary statistics and visualizations for a data set
 ---
