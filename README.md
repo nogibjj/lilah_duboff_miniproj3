@@ -12,6 +12,30 @@
 - [X] CI/CD with badge
 - [X] Generated summary report (PDF or markdown) via CI/CD for extra credit or making your own PDF or MD file and pushing it 
 ---
+### Folder Naviagtion
+##### Here is a quick overview of how the folders are structured for this project
+### Folder Navigation
+---
+- Project Folder
+    - .devcontainer
+        - devcontainer.json
+        - Dockerfile
+    - .github
+        - workflows
+            - main.yml
+    - outputs
+        - gestation_and_bwt_png
+    - python_files
+        - test_files
+            - test_main.py
+            - test_lib.py
+        - lib.py
+        - main.py
+    - Makefile
+    - README.md
+    - requirements.txt
+    - summary_stats.md (generated from main)
+---
 ### Workflow Summary and Explanation
 ##### This project contains the following dependencies:
 - pylint 
