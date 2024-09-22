@@ -12,9 +12,8 @@
 - [X] CI/CD with badge
 - [X] Generated summary report (PDF or markdown) via CI/CD for extra credit or making your own PDF or MD file and pushing it 
 ---
-### Folder Naviagtion
-##### Here is a quick overview of how the folders are structured for this project
 ### Folder Navigation
+##### Here is a quick overview of how the folders are structured for this project:
 ---
 - Project Folder
     - .devcontainer
