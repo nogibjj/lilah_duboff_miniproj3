@@ -1,5 +1,5 @@
 pylint 
-click 
 black
 pytest
-pytest-cov
+polars
+matplotlib
